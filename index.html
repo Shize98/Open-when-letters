@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Open When Letters</title>
+  <style>
+    body {
+      background: url('https://i.imgur.com/28RmjT1.png');
+      background-size: cover;
+      font-family: 'Press Start 2P', cursive;
+      color: #4b2c2c;
+      margin: 0;
+      padding: 2rem;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    .letter {
+      background: #fff0f5;
+      border: 3px dashed #ff69b4;
+      padding: 1.5rem;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .letter:hover {
+      transform: scale(1.05);
+    }
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(255, 240, 245, 0.96);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      overflow-y: auto;
+      z-index: 1000;
+    }
+    .popup.show {
+      display: flex;
+    }
+    .popup-content {
+      background: #fff;
+      padding: 2rem;
+      max-width: 600px;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      font-size: 0.75rem;
+      white-space: pre-wrap;
+    }
+    .close {
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: #d6336c;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="text-align:center;">Open When Letters</h1>
+  <div class="container">
+    <div class="letter" onclick="openLetter('sad')">Open When You're Sad</div>
+    <div class="letter">Coming Soon</div>
+    <div class="letter">Coming Soon</div>
+    <div class="letter">Coming Soon</div>
+    <div class="letter">Coming Soon</div>
+    <div class="letter">Coming Soon</div>
+  </div>
+
+  <div class="popup" id="popup">
+    <div class="popup-content" id="letterContent"></div>
+    <div class="close" onclick="closePopup()">Close</div>
+  </div>
+
+  <script>
+    const letterData = {
+      sad: `Haiii my buttercup,
+I know you're sad, and I know how heavy it feels for you. I know how much you hate it when you're alone in these moments. I hope I'm there with you when you're reading this letter — this little piece of my heart, made just for you, especially when you're feeling low.
+So, darling, my sweet love — first of all, go get something warm and comforting to eat, something that makes your heart smile. And if you can't right now, then here's a soft, virtual vanilla pudding just for you, hehe.
+I know, my baby it feels overwhelming right now. Maybe someone hurt you, or maybe something just didn’t go the way you hoped. Maybe it’s college, or life, or just that feeling of being too full of emotions with nowhere to pour them. There are a hundred little things that can spike your cortisol, shake your peace, and make the world feel like it’s closing in. Because sometimes, happiness feels like a rare star — distant and flickering
+But don't worry, my sweet sunshine
+I'm here with you
+I’m reaching out through this letter to wrap you up in love — hold my hands, lean your head gently between my neck and shoulder, and let me keep you safe in my arms. Just breathe with me,slow and soft. Feel it, love — I’m here.
+Vse plokhoye uskol'zayet, moya sladkaya lyubov',
+i ya nikuda ot tebya ne uydu.
+Ty moy ocharovatel'nyy malen'kiy krolik, right?
+Let’s not think about all those flaws and shadows surrounding your mind. Let’s think about your favorite things,
+How yummy carbonara is or pineapple pizza
+Or how your favorite flower blooms — the buttercup.
+How I associate your smile with it, my little light.
+Ksyu, you don’t just carry brightness inside you — you are warmth itself. Even in the darkest, hardest moments, you glow with the kind of soft, golden light that feels like spring arriving early.
+But even spring needs protecting sometimes —
+and I’m here to hold that light from every storm,
+Buttercups bloom gently, quietly… and still they catch every eye,
+They are effortlessly kind, deeply radiant — just like you.
+They don’t ask to be seen, yet they always are and that’s you, my love
+Luminous and unforgettable
+I know love, things will get hard sometimes.
+But in those moments, please remember —
+I'm right here with you.
+And when you're drowning in blue,
+my hand is all yours to hold.
+Even if I’m not beside you physically — be like little Nemo
+Just keep swimming, Ksyu.
+Keep going, keep dreaming, until you reach that shore of calm.
+I know you can, honey.
+More than anyone in the world, I believe in you.
+I love you,Everything you are
+I’m here with you. Forever ur rehi
+<3`
+    };
+
+    function openLetter(type) {
+      document.getElementById("letterContent").textContent = letterData[type];
+      document.getElementById("popup").classList.add("show");
+    }
+
+    function closePopup() {
+      document.getElementById("popup").classList.remove("show");
+    }
+  </script>
+</body>
+</html>
